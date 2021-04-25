@@ -109,6 +109,7 @@ const Home  = ()=>{
             setData(newData)
         })
     }
+
    return (
        <div className="home">
            {
@@ -139,10 +140,11 @@ const Home  = ()=>{
                             >thumb_up</i>
                             }
                             
-                           
+                            
                                 <h6>{item.likes.length} likes</h6>
-                                <h6>{item.title}</h6>
-                                <p>{item.body}</p>
+                                <h4  style = {{textAlign:"center"}}><strong>{item.title}</strong></h4>
+                                <p style = {{fontSize:"20px", marginLeft : "5%", color:"blue"}}>{item.body}</p>
+                                <h6><strong>---Comments---</strong></h6>
                                 {
                                     item.comments.map(record=>{
                                         return(
@@ -150,9 +152,11 @@ const Home  = ()=>{
                                         )
                                     })
                                 }
-                                <form onSubmit={(e)=>{
+                                
+                                <form id = "commentForm2" onSubmit={(e)=>{
                                     e.preventDefault()
                                     makeComment(e.target[0].value,item._id)
+                                    document.getElementById("commentForm2").reset() 
                                 }}>
                                   <input type="text" placeholder="add a comment" />  
                                 </form>

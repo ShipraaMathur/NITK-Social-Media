@@ -141,8 +141,10 @@ const Home  = ()=>{
                             
                            
                                 <h6>{item.likes.length} likes</h6>
+                                
                                 <h6>{item.title}</h6>
                                 <p>{item.body}</p>
+                                <h5> Comments </h5>
                                 {
                                     item.comments.map(record=>{
                                         return(
@@ -150,9 +152,11 @@ const Home  = ()=>{
                                         )
                                     })
                                 }
-                                <form onSubmit={(e)=>{
+                                
+                                <form id = "commentForm1" onSubmit={(e)=>{
                                     e.preventDefault()
                                     makeComment(e.target[0].value,item._id)
+                                    document.getElementById("commentForm1").reset() 
                                 }}>
                                   <input type="text" placeholder="add a comment" />  
                                 </form>
