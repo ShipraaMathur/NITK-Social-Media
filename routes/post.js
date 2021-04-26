@@ -34,15 +34,15 @@ router.get('/getsubpost',requireLogin,(req,res)=>{
 })
 
 router.post('/createpost',requireLogin,(req,res)=>{
-    const {title,desc,pic} = req.body 
-    if(!title || !desc || !pic){
+    const {title,body,pic} = req.body 
+    if(!title || !body || !pic){
      
       return  res.status(422).json({error:"Please add all the fields"})
     }
     req.user.password = undefined
     const post = new Post({
         title,
-        desc,
+        body,
         photo:pic,
         postedBy:req.user
     })

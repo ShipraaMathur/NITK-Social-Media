@@ -16,8 +16,8 @@ const NavBar = ()=>{
        if(state){
            return [
             <li key="1"><i  data-target="modal1" className="large material-icons modal-trigger" style={{color:"black"}}>search</i></li>,
-            <li key="2"><Link to="/allpost">Dashboard</Link></li>,
-            <li key="3"><Link to="/myfollowingpost">Home</Link></li>,
+            <li key="2"><Link to="/allpost">Home</Link></li>,
+            <li key="3"><Link to="/myfollowingpost">Followed</Link></li>,
             <li key="4"><Link to="/profile">Profile</Link></li>,
             <li key="5"><Link to="/create">Create Post</Link></li>,
             <li  key="6">
@@ -60,9 +60,9 @@ const NavBar = ()=>{
         })
      }
     return(
-        <nav >
-        <div className="nav-wrapper white" >
-          <img src={logo} width='80' height='70'></img>
+        <nav className = "nav-wrapper">
+        <div className="div-nav-wrapper" >
+          <img src={logo} width='60' height='60'></img>
           <Link to={state?"/":"/signin"} className="brand-logo left">National Institute of Technology,Karnataka</Link>
           <ul id="nav-mobile" className="right">
              {renderList()}
